@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Yesenia ✨ A Universe of Love</title>
+  <link rel="stylesheet" href="styles.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Touch Ripple Container -->
+    <div id="rippleContainer"></div>
+    
+    <!-- Particle Systems -->
+    <canvas id="particleCanvas"></canvas>
+    <canvas id="heartCanvas"></canvas>
+    <canvas id="starCanvas"></canvas>
+    
+    <!-- Magnetic Cursor -->
+    <div class="magnetic-cursor">
+        <div class="cursor-inner"></div>
+        <div class="cursor-outer"></div>
+    </div>
+    
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-heart">💖</div>
+            <div class="loading-text">Creating magic for Yesenia...</div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main Experience -->
+    <main class="experience-container">
+        <!-- Landing Portal -->
+        <section class="portal-section" id="portalSection">
+            <div class="cosmic-bg"></div>
+            
+            <!-- Interactive Elements -->
+            <div class="floating-elements">
+                <div class="element heart-element" data-message="You changed everything 💕"></div>
+                <div class="element star-element" data-message="My favorite person ⭐"></div>
+                <div class="element moon-element" data-message="Distance means nothing 🌙"></div>
+                <div class="element sparkle-element" data-message="You make me smile 💫"></div>
+            </div>
+            
+            <!-- Central Portal -->
+            <div class="portal-container">
+                <div class="portal-rings">
+                    <div class="ring ring-1"></div>
+                    <div class="ring ring-2"></div>
+                    <div class="ring ring-3"></div>
+                </div>
+                
+                <div class="portal-core">
+                    <div class="portal-title">
+                        <span class="title-word">For</span>
+                        <span class="title-word special">Yesenia</span>
+                    </div>
+                    
+                    <div class="portal-subtitle">Touch to enter our universe</div>
+                    
+                    <button class="portal-button" id="portalBtn">
+                        <span class="btn-text">Open Your Heart</span>
+                        <div class="btn-particles"></div>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Interactive Constellation -->
+            <div class="constellation-map">
+                <div class="constellation-star" data-reveal="1" data-message="boom — there's you"></div>
+                <div class="constellation-star" data-reveal="2" data-message="i wanted to keep talking"></div>
+                <div class="constellation-star" data-reveal="3" data-message="it makes me kinda happy"></div>
+                <div class="constellation-star" data-reveal="4" data-message="you showed up"></div>
+                <div class="constellation-star" data-reveal="5" data-message="i like you, Yesenia"></div>
+                <div class="constellation-star" data-reveal="6" data-message="you mean a lot to me"></div>
+            </div>
+        </section>
+        
+        <!-- Message Experience -->
+        <section class="message-experience" id="messageSection">
+            <div class="message-bg"></div>
+            
+            <!-- Interactive Message Blocks -->
+            <div class="message-container">
+                <div class="message-header">
+                    <h2 class="message-title">From My Heart to Yours</h2>
+                    <div class="title-underline"></div>
+                </div>
+                
+                <div class="message-blocks">
+                    <div class="message-block" data-block="1">
+                        <div class="block-content">
+                            <p>okay so i didn't think i'd ever meet someone on some random ass dating app and then…</p>
+                            <p class="highlight-text">boom — there's you</p>
+                        </div>
+                        <div class="block-interaction">
+                            <div class="interaction-hint">Swipe to feel the magic</div>
+                        </div>
+                    </div>
+                    
+                    <div class="message-block" data-block="2">
+                        <div class="block-content">
+                            <p>and it's weird, cause i don't usually vibe with people like that</p>
+                            <p>i suck at keeping convos, i get bored quick, i shut off fast</p>
+                            <p>but you?</p>
+                            <p class="highlight-text">i wanted to keep talking.</p>
+                            <p class="highlight-text">and it just kept going.</p>
+                        </div>
+                        <div class="block-interaction">
+                            <div class="interaction-hint">Hold to reveal more</div>
+                        </div>
+                    </div>
+                    
+                    <div class="message-block" data-block="3">
+                        <div class="block-content">
+                            <p>now we're here, sleeping on calls like dumbasses,</p>
+                            <p>talking all day like we've known each other forever</p>
+                            <p>and i don't even care how soft this sounds but…</p>
+                            <p class="highlight-text">it makes me kinda happy, ngl</p>
+                        </div>
+                        <div class="block-interaction">
+                            <div class="interaction-hint">Double tap for surprise</div>
+                        </div>
+                    </div>
+                    
+                    <div class="message-block" data-block="4">
+                        <div class="block-content">
+                            <p>life's been tough on my side lately — heavy shit.</p>
+                            <p>like, nothing's been going right for a while</p>
+                            <p>but then you showed up</p>
+                            <p>and idk, it felt lighter?</p>
+                            <p class="highlight-text">like i had a reason to smile again, even if just on a screen</p>
+                        </div>
+                        <div class="block-interaction">
+                            <div class="interaction-hint">Pinch to zoom into my heart</div>
+                        </div>
+                    </div>
+                    
+                    <div class="message-block" data-block="5">
+                        <div class="block-content">
+                            <p>i know you've been through stuff too</p>
+                            <p>stuff you didn't deserve</p>
+                            <p>and i don't know how to fix any of it</p>
+                            <p>but i do know this —</p>
+                            <p class="highlight-text">i want to be someone who makes you feel safe</p>
+                            <p class="highlight-text">makes you laugh your ass off</p>
+                            <p class="highlight-text">makes you forget that the world can suck</p>
+                        </div>
+                        <div class="block-interaction">
+                            <div class="interaction-hint">Shake to scatter love</div>
+                        </div>
+                    </div>
+                    
+                    <div class="message-block special-block" data-block="6">
+                        <div class="block-content">
+                            <p class="big-reveal">i like you, Yesenia.</p>
+                            <p>not just cause you're pretty (though, you are 😏)</p>
+                            <p>but cause you get me</p>
+                            <p class="highlight-text">and i feel like… i see you. the real you.</p>
+                        </div>
+                        <div class="block-interaction">
+                            <div class="interaction-hint">Long press to unlock secret</div>
+                        </div>
+                    </div>
+                    
+                    <div class="message-block" data-block="7">
+                        <div class="block-content">
+                            <p>so yeah, just wanted you to know</p>
+                            <p class="highlight-text">that i'm glad you're here</p>
+                            <p>and no matter how weird or messy life gets,</p>
+                            <p class="highlight-text">i'm rooting for you. for us.</p>
+                        </div>
+                        <div class="block-interaction">
+                            <div class="interaction-hint">Trace the words with your finger</div>
+                        </div>
+                    </div>
+                    
+                    <div class="message-block" data-block="8">
+                        <div class="block-content">
+                            <p>also — pls never let this message surface in public</p>
+                            <p>i've got a rep to protect</p>
+                            <p>people think i'm cold and unbothered</p>
+                            <p>but somehow, here i am.</p>
+                            <p>sending you this.</p>
+                            <p>and meaning every damn word.</p>
+                            <p class="highlight-text">guess i'm not as heartless as i pretend to be 🤷‍♂️</p>
+                            <p class="highlight-text">or maybe… you're just that special.</p>
+                        </div>
+                        <div class="block-interaction">
+                            <div class="interaction-hint">Whisper your response</div>
+                        </div>
+                    </div>
+                    
+                    <div class="message-block final-block" data-block="9">
+                        <div class="block-content">
+                            <p>but yeah…</p>
+                            <p class="big-reveal">you mean a lot to me.</p>
+                            <p class="big-reveal">and i'm not going anywhere.</p>
+                        </div>
+                        <div class="block-interaction">
+                            <div class="interaction-hint">Feel the love</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Signature -->
+                <div class="message-signature">
+                    <div class="signature-content">
+                        <p>With all my love,</p>
+                        <p class="signature-name">Your Person 💕</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Secret Garden -->
+        <section class="secret-garden" id="secretGarden">
+            <div class="garden-bg"></div>
+            <div class="garden-content">
+                <h3 class="garden-title">Our Secret Garden</h3>
+                <div class="garden-elements">
+                    <div class="garden-flower" data-memory="First laugh together"></div>
+                    <div class="garden-flower" data-memory="Late night conversations"></div>
+                    <div class="garden-flower" data-memory="Sleeping on calls"></div>
+                    <div class="garden-flower" data-memory="Making each other smile"></div>
+                    <div class="garden-flower" data-memory="Finding each other"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Interactive Modals -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-content">
+            <div class="modal-close">&times;</div>
+            <div class="modal-message" id="modalMessage"></div>
+        </div>
+    </div>
+    
+    <!-- Audio Controls -->
+    <div class="audio-controls">
+        <button class="audio-btn" id="audioBtn">
+            <span class="audio-icon">🎵</span>
+        </button>
+    </div>
+    
+    <!-- Haptic Feedback Indicator -->
+    <div class="haptic-indicator" id="hapticIndicator">
+        <div class="haptic-pulse"></div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
