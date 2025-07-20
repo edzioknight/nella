@@ -13,6 +13,7 @@ class LoveExperience {
         this.backgroundMusicBuffer = null;
         this.backgroundMusicSource = null;
         this.backgroundMusicGain = null;
+        this.audioUnlocked = false;
         
         this.init();
     }
@@ -25,6 +26,7 @@ class LoveExperience {
         this.setupTouchInteractions();
         this.setupAudioSystem();
         this.loadBackgroundMusic();
+        this.setupAutoplayOnInteraction();
         this.startLoadingSequence();
     }
     
@@ -324,6 +326,52 @@ class LoveExperience {
         this.cursorY = 0;
         
         this.updateCursor();
+    }
+    
+    // Setup autoplay on first user interaction
+    setupAutoplayOnInteraction() {
+        const unlockAudio = () => {
+            if (!this.audioUnlocked && this.audioContext) {
+                // Resume audio context if suspended
+                if (this.audioContext.state === 'suspended') {
+                    this.audioContext.resume().then(() => {
+                        this.audioUnlocked = true;
+                        this.startBackgroundMusic();
+                        console.log('Audio unlocked and background music started');
+                    }).catch(e => {
+                        console.log('Failed to resume audio context:', e);
+                    });
+                } else {
+                    this.audioUnlocked = true;
+                    this.startBackgroundMusic();
+                    console.log('Audio unlocked and background music started');
+                }
+                
+                // Update audio button to show music is playing
+                const audioBtn = document.getElementById('audioBtn');
+                const audioIcon = audioBtn.querySelector('.audio-icon');
+                audioIcon.textContent = '🎵';
+                audioBtn.style.opacity = '1';
+                
+                // Remove event listeners after first interaction
+                document.removeEventListener('click', unlockAudio);
+                document.removeEventListener('touchstart', unlockAudio);
+                document.removeEventListener('keydown', unlockAudio);
+            }
+        };
+        
+        // Add event listeners for first user interaction
+        document.addEventListener('click', unlockAudio);
+        document.addEventListener('touchstart', unlockAudio);
+        document.addEventListener('keydown', unlockAudio);
+    }
+    
+    // Start background music (called after audio is unlocked)
+    startBackgroundMusic() {
+        if (this.audioUnlocked && this.backgroundMusicBuffer) {
+            this.isAudioEnabled = true;
+            this.playBackgroundMusic();
+        }
     }
     
     updateCursor() {
@@ -937,16 +985,21 @@ class LoveExperience {
     }
     
     toggleAudio() {
-        this.isAudioEnabled = !this.isAudioEnabled;
-        const audioBtn = document.getElementById('audioBtn');
-        const audioIcon = audioBtn.querySelector('.audio-icon');
-        
-        audioIcon.textContent = this.isAudioEnabled ? '🎵' : '🔇';
-        audioBtn.style.opacity = this.isAudioEnabled ? '1' : '0.6';
-        
-        if (this.isAudioEnabled && this.audioContext && this.audioContext.state === 'suspended') {
-            this.audioContext.resume();
+        if (!this.audioUnlocked) {
+            // If audio hasn't been unlocked yet, try to unlock it
+            if (this.audioContext && this.audioContext.state === 'suspended') {
+                this.audioContext.resume().then(() => {
+                    this.audioUnlocked = true;
+                    this.isAudioEnabled = true;
+                    this.playBackgroundMusic();
+                    this.updateAudioButton();
+                });
+            }
+            return;
         }
+        
+        this.isAudioEnabled = !this.isAudioEnabled;
+        this.updateAudioButton();
         
         // Control background music
         if (this.isAudioEnabled) {
@@ -954,6 +1007,14 @@ class LoveExperience {
         } else {
             this.stopBackgroundMusic();
         }
+    }
+    
+    updateAudioButton() {
+        const audioBtn = document.getElementById('audioBtn');
+        const audioIcon = audioBtn.querySelector('.audio-icon');
+        
+        audioIcon.textContent = this.isAudioEnabled ? '🎵' : '🔇';
+        audioBtn.style.opacity = this.isAudioEnabled ? '1' : '0.6';
     }
     
     // Haptic Feedback
