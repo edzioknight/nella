@@ -583,18 +583,18 @@ class LoveExperience {
     
     revealSecretMessage(block, index) {
         const secretMessages = [
-            "You light up my world 🌟",
-            "Every moment with you matters 💫",
-            "You're my favorite person 💕",
-            "Distance means nothing when someone means everything 🌙",
-            "You make everything better ✨",
-            "I'm so grateful for you 💖",
-            "You're worth every mile between us 🌈",
-            "My heart smiles when I think of you 😊",
-            "You're my safe place 🏠"
+            "You bring light to my world, Nella 🌟",
+            "Every conversation with you is a gift 💫",
+            "You're my favorite person, my best friend 💕",
+            "Pakistan to France means nothing when you mean everything 🌙",
+            "You make everything feel lighter ✨",
+            "I'm so grateful for you, especially during tough times 💖",
+            "You're worth every mile between us, and more 🌈",
+            "My heart smiles when I think of you, even when I'm tired 😊",
+            "You're my safe place, my home 🏠"
         ];
         
-        const message = secretMessages[index] || "You're absolutely amazing 💕";
+        const message = secretMessages[index] || "You're absolutely amazing, Nella 💕";
         this.showModal(message);
     }
     
